@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using SmartSql.Data;
 using SmartSql.Reflection.TypeConstants;
@@ -15,7 +16,7 @@ namespace SmartSql.Deserializer
                    resultType == DataType.DynamicRow;
         }
 
-        public TResult ToSinge<TResult>(ExecutionContext executionContext)
+        public TResult ToSingle<TResult>(ExecutionContext executionContext)
         {
             var dataReader = executionContext.DataReaderWrapper;
             if (!dataReader.HasRows) return default;
@@ -40,7 +41,7 @@ namespace SmartSql.Deserializer
             return list;
         }
 
-        public async Task<TResult> ToSingeAsync<TResult>(ExecutionContext executionContext)
+        public async Task<TResult> ToSingleAsync<TResult>(ExecutionContext executionContext)
         {
             var dataReader = executionContext.DataReaderWrapper;
             if (!dataReader.HasRows) return default;
@@ -64,7 +65,7 @@ namespace SmartSql.Deserializer
 
             return list;
         }
-
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private DynamicRow ToDynamicRow(DataReaderWrapper dataReader, IDictionary<string, int> columns)
         {
             var values = new object[columns.Count];

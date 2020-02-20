@@ -11,8 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Maps\User.xml" />
-    <Content Include="Maps\AllPrimitive.xml" />
     <Content Include="SmartSqlMapConfig.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
